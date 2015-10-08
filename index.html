@@ -24,7 +24,7 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-precomposed.png">
-    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 
@@ -266,7 +266,20 @@
             sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
             anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
             // menu: '#menu',
-            scrollingSpeed: 1000
+            scrollingSpeed: 1000,
+            resize: true,
+            afterRender:function(){
+                console.log("========afterRender=========");
+                //TODO 首次进入处理逻辑
+            },
+            afterLoad:function(anchorLink, index){
+                console.log("========afterLoad=========anchorLink:"+anchorLink+",index:"+index);
+                //TODO 每次切换屏处理逻辑
+            },
+            onLeave: function(index,nextIndex, direction){
+                console.log("========onLeave=========direction:"+direction+",index:"+index+",nextIndex:"+nextIndex);
+                //TODO 每次离开屏处理逻辑
+            }
         });
     });
 </script>
